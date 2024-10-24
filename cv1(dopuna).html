@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emir.CV</title>
+</head>
+<h1>Emir Rahić</h1>
+
+<body>
+    <img src="cv.jpg" width="114" height="142">
+    <hr>
+    <nav>
+        <ul> 
+            <li><a href="#Introduction">Introduction </li>
+            <li><a href="#Experience">Experience</a></li>
+            <li><a href="#Skills">Skills</a></li>
+    
+        </ul>
+    </nav>
+    <section id="Introduction">
+    <h2>Introduction</h2>
+    <p>Hello!My name is <strong>Emir Rahić</strong> and I am a passionate Web developer with over <u><strong>5 years</strong></u> of in building modern web applications.I specialize in creating <u>clean</u>,<i>responsive</i> and <strong>high-performance</strong> websites.</p>
+    <p>I have a strong background in <strong>frontend development</strong>,working with technologies like <strong>HTML</strong>,<strong>CSS</strong>,<i>JavaScript</i> and <strong>React</strong>.I am also comfortable with backend technologies like <u>Node.js</u> and Express.</p>
+</section>
+    <hr>
+<section>
+    <h2>Your location</h2>
+    <button onclick="getLocation()">Get My Location</button>
+    <p>Click the button to get your location.</p>
+<p id="location"></p>
+
+<script>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            document.getElementById("location").innerText = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        document.getElementById("location").innerText = 
+            `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+    }
+
+    function showError(error) {
+        switch(error.code) {
+            case error.PERMISSION_DENIED:
+                document.getElementById("location").innerText = "User denied the request for Geolocation.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                document.getElementById("location").innerText = "Location information is unavailable.";
+                break;
+            case error.TIMEOUT:
+                document.getElementById("location").innerText = "The request to get user location timed out.";
+                break;
+            case error.UNKNOWN_ERROR:
+                document.getElementById("location").innerText = "An unknown error occurred.";
+                break;
+        }
+    }
+</script>
+             
+</section>
+<hr>
+<section id="Skills">
+    <h2>Skills</h2>
+    
+    <pre>
+Skills:
+    -HTML,CSS,JavaScript
+    -React,Redux,Node.js
+    -RESTful,APIs,Express
+    -Version control(Git,Github)
+    -Web performance optimization
+    </pre>
+</section>
+    <hr>
+<section id="Experience"></section>
+    <h2>Experience</h2>
+    <ul>
+        <li><strong>Web developer</strong>at XYZ Corp(2018-Present)</li>
+        <li><strong>Frontend developer</strong> at ABC Ltd(2016-2018)</li>
+        <li><strong>Freelance Web designer</strong>(2015-2016)</li>
+    </ul>
+</section>
+    <hr>
+    <h2>Education & Certifications</h2>
+    <ol>
+        <li>Bachelor's Degree in Computer science-University of Sarajevo</li>
+        <li>Certified JavaScript developer-FreeCodeCamp</li>
+        <li>Responsive Web Design Certification-Coursera</li>
+    </ol>
+    <hr>
+    <h2>Personal Projects</h2>
+    <dl>
+        <p>Some of my projects include a <i>Task manager</i> built using <strong>React</strong> and a <u>Portofolio website</u>showcasing various frontend and backend work.</p>
+                <dd><q>Code is like Humor.When you have to explain it,it's bad</q>-Cory House</dd>
+            
+            <br>
+            <dt>Visit my <a href="https://github.com/emirrahic" target="_blank">GitHub profile </a> for more<dt> 
+    </dl>
+
+    <hr>
+    <h2>Personal information</h2>
+    <dl>
+        <dt>Full Name:</dt>
+              <dd>Emir Rahić</dd>
+        <dt>Email:</dt>
+             <dd>emir.rahic@stu.ibu.edu.ba</dd>
+        <dt>Location:</dt>
+             <dd>Sarajevo,Bosnia and Herzegovina</dd>
+    </dl>
+</body>
