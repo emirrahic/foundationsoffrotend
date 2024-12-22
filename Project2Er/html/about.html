@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloria Food</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="about.css">
+
+       
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo of Gloria Food">
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="Products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="registration.html">Sign up</a></li>
+            <li><a href="about.html">About us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    
+
+    <div class="section">
+        <button class="toggle-btn" onclick="toggleContent('about')">About Gloria Foods</button>
+        <div id="about-content" class="toggle-content">
+            <p>At Gloria Foods, we believe that food is more than just a necessity—it's an experience that brings joy, connection, and celebration. We are dedicated to delivering the best flavors from your favorite restaurants straight to your door.</p>
+            <p>We collaborate with top chefs and eateries to ensure every meal we deliver is fresh, delicious, and tailored to your cravings. Whether you’re indulging in a hearty classic or exploring global cuisines, Gloria Foods ensures every bite is memorable.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <button class="toggle-btn" onclick="toggleContent('fast-reliable')">Fast and Reliable</button>
+        <div id="fast-reliable-content" class="toggle-content">
+            <p>Reliability, speed, and excellence are at the core of our service. Our advanced delivery system ensures your meals arrive hot and fresh, just the way you love them.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <button class="toggle-btn" onclick="toggleContent('ordering-system')">Ordering System</button>
+        <div id="ordering-system-content" class="toggle-content">
+            <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/4UIS3gRoZ5g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <button class="toggle-btn" onclick="toggleContent('gallery')">Gallery</button>
+        <div id="gallery-content" class="toggle-content">
+            <div class="gallery">
+                <img src="fotka1.jpg" alt="Image 1" onclick="openModal('fotka1.jpg')">
+                <img src="fotka2.jpg" alt="Image 2" onclick="openModal('fotka2.jpg')">
+                <img src="fotka3.jpg" alt="Image 3" onclick="openModal('fotka3.jpg')">
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="section">
+        <button class="toggle-btn" onclick="toggleContent('news')">Latest News</button>
+        <div id="news-content" class="toggle-content">
+            <ul id="news-list">
+                <li>Loading news...</li>
+            </ul>
+        </div>
+    </div>
+
+    <button class="btn mt-3" style="background-color:#ff8c00;color:white;" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</button>
+
+</main>
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" style="background-color: #ff8c00;" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p>Feel free to reach out to our support agent via Gmail, by clicking the button below.</p>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=amela.vatres@stu.ibu.edu.ba" target="_blank" class="btn btn-primary" style="background-color: #ff8c00;" target="_blank">Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>Foundations of Web Development - Rahic Emir</p>
+</footer>
+
+<script>
+    function openModal(imageSrc) {
+        var modalImage = document.getElementById('modalImage');
+        modalImage.src = imageSrc;
+        var myModal = new bootstrap.Modal(document.getElementById('galleryModal'));
+        myModal.show();
+    }
+
+    function toggleContent(section) {
+        var content = document.getElementById(section + '-content');
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+
+    const newsApiKey = '48355c6f8b54480f8c363902b50e3c23';
+
+function getNews() {
+    fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsApiKey}`)
+        .then(response => response.json())
+        .then(data => {
+            const newsList = document.getElementById('news-list');
+            newsList.innerHTML = ''; 
+
+            if (data.articles.length > 0) {
+                data.articles.forEach(article => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = article.url;
+                    link.target = '_blank';
+                    link.textContent = article.title;
+                    listItem.appendChild(link);
+                    newsList.appendChild(listItem);
+                });
+            } else {
+                newsList.innerHTML = '<li>No news available.</li>';
+            }
+        })
+        .catch(() => {
+            document.getElementById('news-list').innerHTML = '<li>Error fetching news.</li>';
+        });
+}
+
+window.onload = getNews;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gloria Food</title>
+    <link rel="stylesheet" href="homepage.css">
+    
+</head>
+<body>
+    <header>
+        <img src="logo.png" width="120" height="140" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="registration.html">Sign in</a></li>
+                <li><a href="about.html">About us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to Gloria Food</h1>
+        <h2>Fresh food, fast to your doorstep.</h2>
+        <img src="background.jpg" alt="Background pic">
+        <p>We offer a wide variety of foods, delivered quickly to you.</p>
+
+        
+        <div id="more-info">
+            <p>Gloria Food includes plant-based, meat meals, and other food items provided that they do not compromise quality and freshness. You may place your order right now and get good meals right to your door!
+
+
+            </p>
+        </div>
+
+        
+        <button id="view-more">View More</button>
+        <button id="theme-switcher">Switch Theme</button>
+        <hr>
+    </main>
+    <footer>
+        <p>Foundations of Web Development - Rahic Emir</p>
+    </footer>
+
+    <script>
+        
+        function switchTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute("data-theme");
+
+            if (currentTheme === "light") {
+                body.setAttribute("data-theme", "dark");
+            } else {
+                body.setAttribute("data-theme", "light");
+            }
+        }
+
+       
+        document.getElementById("theme-switcher").addEventListener("click", switchTheme);
+
+       
+        document.body.setAttribute("data-theme", "light");
+
+       
+        document.getElementById("view-more").addEventListener("click", function() {
+            const moreInfo = document.getElementById("more-info");
+            moreInfo.style.display = moreInfo.style.display === "none" ? "block" : "none";
+            this.textContent = moreInfo.style.display === "none" ? "View More" : "View Less";
+        });
+    </script>
+</body>
+</html>

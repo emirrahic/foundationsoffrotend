@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "name": "Classic Cheeseburger",
+        "description": "A juicy beef patty topped with melted cheese, lettuce, tomato, and onion.",
+        "image": "fotor-ai-2024102717290.jpg",
+        "sizes": [
+            { "size": "Small", "price": 4 },
+            { "size": "Medium", "price": 6 },
+            { "size": "Large", "price": 9 }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Mediterranean Delight",
+        "description": "A flavorful pizza topped with juicy cherry tomatoes.",
+        "image": "pizza.jpg",
+        "sizes": [
+            { "size": "Small", "price": 5 },
+            { "size": "Medium", "price": 8 },
+            { "size": "Large", "price": 12 }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Penne Pasta",
+        "description": "A Penne pasta with a flavorful sauce made with roasted cherry tomatoes.",
+        "image": "pasta.jpg",
+        "sizes": [
+            { "size": "Small", "price": 5 },
+            { "size": "Medium", "price": 9 },
+            { "size": "Large", "price": 11 }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Crispy Chicken & Fries",
+        "description": "Crispy fried chicken tenders served with a side of crispy golden fries.",
+        "image": "chicken.jpg",
+        "sizes": [
+            { "size": "Small", "price": 6 },
+            { "size": "Medium", "price": 10 },
+            { "size": "Large", "price": 15 }
+        ]
+    }
+]
